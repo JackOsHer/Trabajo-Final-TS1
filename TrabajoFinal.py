@@ -11,3 +11,8 @@ while True:
     if len(G) == x and len(H) == z:
         break
 
+suma = 0 
+for fila in H:
+    suma = suma + fila
+
+pozo = suma * 5
