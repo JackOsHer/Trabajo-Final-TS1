@@ -11,6 +11,7 @@ while True:
         H.append(z)
     else:
         z = int(input("Ingrese numero de cartillas: "))
+        H.append(z)
     if len(G) == x:
         break
 
