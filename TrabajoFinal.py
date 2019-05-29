@@ -1,58 +1,68 @@
-G=[]
-H=[]
-#Entrada
-x = int(input("ingrese el numero de jugadores: "))
-
+import time
 while True:
-    y = input("ingrese su nombre: ")
-    G.append(y)
+
+    G=[]
+    H=[]
+    #Entrada
+    x = int(input("\nIngrese el numero de jugadores: "))
+
     while True:
-        z= int(input("ingrese numero de cartillas: "))
-        if z <= 3:
-            H.append(z)
-            break
-    if len(G) == x:
-        break
-
-suma = 0 
-for fila in H:
-    suma = suma + fila
-
-pozo = suma * 5
-
-
-
-import random
-n = []
-m = []
-for i in range(1,81):
-    n.append(i)
-
-print("MENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado")
-op1 = "OPCION 1: Mostrar resumen"
-op2 = "OPCION 2: Reiniciar juego"
-op3 = "OPCION 3: Finalizar juego"
-op4 = "OPCION 4: Mostrar pozo ganado"
-
-while True:
-    a = random.choice(n)
-    m.append(a)
-    n.remove(a)
-    respuesta = int(input("Presione 5 para continuar el juego: "))
-    print("Bolilla elegida: ",a)
-    if len(m)>=15:
+        y = input("\nIngrese su nombre: ")
+        G.append(y)
         while True:
-            print("MENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado")
-            opcion = int(input("Ingrese el numero de la opcion elegida: "))
-            if(1<=opcion<=4):
+            z= int(input("\nIngrese numero de cartillas: "))
+            if z <= 3:
+                H.append(z)
                 break
-        if opcion==1:
-            print("Resumen: ",m)
-        elif opcion==2:
-            print("Reiniciando el programa")
-        elif opcion==3:
-            print("Finalizando juego")
-        else:
-            print("Pozo ganado: ")
-    if(respuesta==5):
-        continue
+        if len(G) == x:
+            break
+
+    suma = 0 
+    for fila in H:
+        suma = suma + fila
+
+    pozo = suma*5
+
+
+
+    import random
+    n = []
+    m = []
+    for i in range(1,81):
+        n.append(i)
+
+    print("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
+
+
+
+    while True:
+        a = random.choice(n)
+        m.append(a)
+        n.remove(a) 
+
+        if len(m)>=1:
+
+            while True:
+                opcion = int(input("\nIngrese el numero de la opcion elegida: "))
+                print("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
+                if(1<=opcion<=5):
+                    break
+
+            if opcion==1:
+                print("\nResumen: ",m)
+            elif opcion==2:
+                print("\nReiniciando el programa")
+            elif opcion==3:
+                print("\nFinalizando juego")
+            elif opcion==4:
+                print("\nPozo ganado: ",pozo, " soles")
+            else:
+                print("\n>>>>>>>>>> Bolilla elegida: ",a, " <<<<<<<<<<")
+
+        if(opcion==5):
+            continue
+        if(opcion==3 and opcion==2):
+            break  
+    
+if(opcion==2):
+    quit
