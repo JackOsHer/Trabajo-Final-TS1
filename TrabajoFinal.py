@@ -36,11 +36,8 @@ while True:
 
 
     while True:
-        a = random.choice(n)
-        m.append(a)
-        n.remove(a) 
-
-        if len(m)>=1:
+        
+        if len(m)>=0:
 
             while True:
                 opcion = int(input("\nIngrese el numero de la opcion elegida: "))
@@ -52,17 +49,29 @@ while True:
                 print("\nResumen: ",m)
             elif opcion==2:
                 print("\nReiniciando el programa")
+                print("\n_____________________________________________________________")
+                print("\n>>>>>>>>>>>>>>>>>>>>>>NUEVO JUEGO<<<<<<<<<<<<<<<<<<<<<")
+                print("\n_____________________________________________________________")    
             elif opcion==3:
                 print("\nFinalizando juego")
+                print("\n_____________________________________________________________")
+                print("\n>>>>>>>>>>>>>>>>>>>>>>GAME OVER<<<<<<<<<<<<<<<<<<<<<")
+                print("\n_____________________________________________________________")
             elif opcion==4:
-                print("\nPozo ganado: ",pozo, " soles")
+                print("\n_____________________________________________________________")
+                print("\nPOZO GANADO: ",pozo, " SOLES")
+                print("\n_____________________________________________________________")
             else:
+                a = random.choice(n)
+                m.append(a)
+                n.remove(a)
                 print("\n>>>>>>>>>> Bolilla elegida: ",a, " <<<<<<<<<<")
-
+        
         if(opcion==5):
             continue
-        if(opcion==3 and opcion==2):
+        if(opcion==2 or opcion==3):
             break  
-    
-if(opcion==2):
-    quit
+     
+    if(opcion==3):
+        break
+#Hay talento, solo falta apoyarlo.
