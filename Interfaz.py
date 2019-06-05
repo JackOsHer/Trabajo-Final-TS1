@@ -18,6 +18,7 @@ def abrir_ventana2():
     etiqueta3 = Label(ventana2, text="Bienvenidos al Bingo")
     etiqueta3.pack()
     ttk.Button(ventana2, text='Salir', command=ventana2.destroy).pack(side=BOTTOM)
+
     etiqueta4 = Label(ventana2, text="Mostrar Resumen:").place(x=60, y=30)
     etiqueta5 = Label(ventana2, text="Reiniciar Juego:").place(x=60, y=60)
     etiqueta6 = Label(ventana2, text="Finalizar Juego:").place(x=60, y=90)
@@ -25,10 +26,15 @@ def abrir_ventana2():
     etiqueta8 = Label(ventana2, text="Sacar Bolilla:").place(x=60, y=150)
 
     boton5 = Button(ventana2, text="Seleccionar", command=seleccionar1).place(x=180, y=30)
-    boton6 = Button(ventana2, text="Seleccionar", ).place(x=180, y=60)
-    boton7 = Button(ventana2, text="Seleccionar", command=ventana2.destroy).place(x=180, y=90)
+    boton6 = Button(ventana2, text="Seleccionar", command=reiniciar).place(x=180, y=60)
+    boton7 = Button(ventana2, text="Seleccionar", command=ventana2.detroy).place(x=180, y=90)
     boton8 = Button(ventana2, text="Seleccionar", command=calcular_pozo).place(x=180, y=120)
     boton9 = Button(ventana2, text="Seleccionar", command=seleccionar5).place(x=180, y=150)
+
+def reiniciar():
+    G.clear()
+    H.clear()
+        
 
 def seleccionar1():
     messagebox.showinfo("RESUMEN", str(m))
@@ -61,7 +67,7 @@ def calcular_pozo():
 
   
 
-ventana= Tk()
+ventana = Tk(useTk=0)
 
 # Definimos las variables
 n = []
@@ -69,7 +75,7 @@ for i in range(1,81):
     n.append(i)
 m = []
 
-
+A = 0
 G = []
 H = []
 nombre = StringVar()
@@ -81,6 +87,7 @@ ventana.title("BINGO!!!")
 etiqueta = Label(ventana, text="Bienvenidos al Bingo")
 etiqueta.pack()
 ttk.Button(ventana, text='Salir', command=ventana.destroy).pack(side=BOTTOM)
+
 
 
 # Interfaz: Ventanas Label y TextField (Ventana1)
@@ -97,7 +104,6 @@ cartilla_etiqueta = Entry(ventana, textvariable=cartilla).place(x=180, y=60)
 boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2).place(x=140, y=130)
 boton3 = Button(ventana, text="Agregar Jugador", command=añadir_jugador).place(x=60, y=90)
 boton4 = Button(ventana, text="Mostrar Jugadores", command=mostrar_jugadores).place(x=180, y=90)
-
 
 
 etiqueta.mainloop()
