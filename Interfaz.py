@@ -27,7 +27,7 @@ def abrir_ventana2():
     boton5 = Button(ventana2, text="Seleccionar", command=seleccionar1).place(x=180, y=30)
     boton6 = Button(ventana2, text="Seleccionar", ).place(x=180, y=60)
     boton7 = Button(ventana2, text="Seleccionar", command=ventana2.destroy).place(x=180, y=90)
-    boton8 = Button(ventana2, text="Seleccionar", ).place(x=180, y=120)
+    boton8 = Button(ventana2, text="Seleccionar", command=calcular_pozo).place(x=180, y=120)
     boton9 = Button(ventana2, text="Seleccionar", command=seleccionar5).place(x=180, y=150)
 
 def seleccionar1():
@@ -40,13 +40,25 @@ def seleccionar5():
     messagebox.showinfo("BOLILLA", "Bolilla elegida: "+str(a))
 
 def añadir_jugador():
-    G.append(nombre.get())
-    H.append(cartilla.get())
+    if int(cartilla.get()) <4:
+        G.append(nombre.get())
+        H.append(cartilla.get())
+    else:
+        messagebox.showinfo("Mensaje", "Ah excedido el número de cartillas permitidas")
     nombre.set("")
     cartilla.set("")
     
 def mostrar_jugadores():
     messagebox.showinfo("Jugadores", str(G))
+
+def calcular_pozo():
+    pozo = 0
+    for i in H:
+        pozo = pozo + int(i)
+    pozo = pozo*5
+
+    messagebox.showinfo("Mensaje", "El pozo es de "+ str(pozo) + " soles")
+
   
 
 ventana= Tk()
