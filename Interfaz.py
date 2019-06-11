@@ -32,7 +32,7 @@ def ganar():
     etiqueta9 = Label(ventana3, text="FELICITACIONES, Usted ha ganado").place(x=50, y=20)
     ventana3.geometry('300x200')
     ventana3.title("BINGO!!!")
-    Imagen = PhotoImage(file="bingo1.png").place(x=0, y=40)
+    Imagen = PhotoImage(file="bingo1.png").place(x=10, y=40)
     etiqueta10 = Label(ventana3, image=Imagen).place(x=0, y=50).pack()
     
 
