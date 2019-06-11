@@ -64,8 +64,11 @@ def seleccionar_bolilla():
     messagebox.showinfo("BOLILLA", "Bolilla elegida: "+str(a))
 
 def añadir_jugador():
-    G.append(nombre.get())
-    H.append(cartilla.get())
+    if int(cartilla.get())<4:
+        G.append(nombre.get())
+        H.append(cartilla.get())
+    else:
+        messagebox.showinfo("Mensaje", "Ah excedido el número de cartillas permitido")
     nombre.set("")
     cartilla.set("")
     
