@@ -30,10 +30,11 @@ def abrir_ventana2():
 def ganar():
     ventana3 = Tk()
     etiqueta9 = Label(ventana3, text="FELICITACIONES, Usted ha ganado").place(x=50, y=20)
-    ventana3.geometry('300x200')
+    ventana3.geometry('350x450')
     ventana3.title("BINGO!!!")
-    Imagen = PhotoImage(file="bingo1.png").place(x=10, y=40)
-    etiqueta10 = Label(ventana3, image=Imagen).place(x=0, y=50).pack()
+    imagen = PhotoImage(file="bingo.png")
+    etiqueta10 = Label(ventana3, image=imagen).place(x=0, y=0)
+    ventana3.mainloop()
     
 
 def resumen():
@@ -110,8 +111,8 @@ cartilla_etiqueta = Entry(ventana, textvariable=cartilla).place(x=180, y=60)
 
 # Interfaz: Botones
 
-boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2).place(x=140, y=130)
-boton3 = Button(ventana, text="Agregar Jugador", command=añadir_jugador).place(x=60, y=90)
-boton4 = Button(ventana, text="Mostrar Jugadores", command=mostrar_jugadores).place(x=180, y=90)
+boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2,activebackground="#369A8E").place(x=140, y=130)
+boton3 = Button(ventana, text="Agregar Jugador", command=añadir_jugador,activebackground="#369A8E").place(x=60, y=90)
+boton4 = Button(ventana, text="Mostrar Jugadores", command=mostrar_jugadores,activebackground="#369A8E").place(x=180, y=90)
 
 etiqueta.mainloop()
