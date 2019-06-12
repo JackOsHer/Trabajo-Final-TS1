@@ -4,6 +4,18 @@ from tkinter import*
 from tkinter import ttk
 from tkinter import messagebox
 
+ventana= Tk()
+
+# Definimos las variables
+n=[]
+for i in range(1,81):
+    n.append(i)
+m=[]
+G=[]
+H =[]
+nombre = StringVar()
+cartilla = StringVar()
+
 # Definimos las funciones
 def saludar():
     print("Hola "+nombre.get())
@@ -12,30 +24,42 @@ def obtener():
     messagebox.showinfo("Mensaje","Hola "+nombre.get()+"\nUsted ha comprado "+str(cartilla.get())+" cartillas")
 
 def abrir_ventana2():
-    etiqueta3 = Label(ventana, text=">>>>>>>> BINGO <<<<<<<<",fg="blue",bg="#369A8E").place(x=90, y=190)
-
-    etiqueta4 = Label(ventana, text=" Mostrar Resumen:",fg="#181446",bg="#369A8E",wraplength=300).place(x=80, y=220)
-    etiqueta5 = Label(ventana, text="Reiniciar Juego:",fg="#181446",bg="#369A8E").place(x=80, y=255)
-    etiqueta6 = Label(ventana, text="Finalizar Juego:",fg="#181446",bg="#369A8E").place(x=80, y=290)
-    etiqueta7 = Label(ventana, text="Mostrar Pozo:",fg="#181446",bg="#369A8E").place(x=80, y=325)
-    etiqueta8 = Label(ventana, text="Sacar Bolilla:",fg="#181446"  ,bg="#369A8E").place(x=80, y=360)
-
-    boton5 = Button(ventana, text="Seleccionar", command=resumen,activebackground="#369A8E").place(x=200, y=220)
-    boton6 = Button(ventana, text="Seleccionar", command=reiniciar,activebackground="#369A8E").place(x=200, y=255)
-    boton7 = Button(ventana, text="Seleccionar", command=finalizar,activebackground="#369A8E").place(x=200, y=290)
-    boton8 = Button(ventana, text="Seleccionar", command=mostrar_pozo,activebackground="#369A8E").place(x=200, y=325)
-    boton9 = Button(ventana, text="Seleccionar", command=seleccionar_bolilla,activebackground="#369A8E").place(x=200, y=360)
-    boton10 = Button(ventana, text="BINGO", command=ganar,activebackground="gold").place(x=250, y=410)
+    #LABEL's
+    etiqueta3 = Label(ventana, text=">>>>>>>> BINGO <<<<<<<<",fg="blue",bg="#15CBDA").place(x=90, y=190)
+    etiqueta4 = Label(ventana, text=" Mostrar Resumen:",fg="#181446",bg="#15CBDA",wraplength=300).place(x=80, y=220)
+    etiqueta5 = Label(ventana, text="Reiniciar Juego:",fg="#181446",bg="#15CBDA").place(x=80, y=255)
+    etiqueta6 = Label(ventana, text="Finalizar Juego:",fg="#181446",bg="#15CBDA").place(x=80, y=290)
+    etiqueta7 = Label(ventana, text="Mostrar Pozo:",fg="#181446",bg="#15CBDA").place(x=80, y=325)
+    etiqueta8 = Label(ventana, text="Sacar Bolilla:",fg="#181446"  ,bg="#15CBDA").place(x=80, y=360)
+    #Botones
+    boton5 = Button(ventana, text="Seleccionar", command=resumen,activebackground="red").place(x=200, y=220)
+    boton6 = Button(ventana, text="Seleccionar", command=reiniciar,activebackground="red").place(x=200, y=255)
+    boton7 = Button(ventana, text="Seleccionar", command=finalizar,activebackground="red").place(x=200, y=290)
+    boton8 = Button(ventana, text="Seleccionar", command=mostrar_pozo,activebackground="red").place(x=200, y=325)
+    boton9 = Button(ventana, text="Seleccionar", command=seleccionar_bolilla,activebackground="red").place(x=200, y=360)
+    boton10 = Button(ventana, text="BINGO", command=ganar,activebackground="#BABC28").place(x=250, y=410)
 
 def ganar():
-    ventana3 = Tk()
-    etiqueta9 = Label(ventana3, text="FELICITACIONES, Usted ha ganado").place(x=50, y=20)
-    ventana3.geometry('350x450')
-    ventana3.title("BINGO!!!")
-    imagen = PhotoImage(file="bingo.png")
-    etiqueta10 = Label(ventana3, image=imagen).place(x=0, y=0)
-    ventana3.mainloop()
+    if int(len(m))>=15:
+        ventana3 = Tk()
+        etiqueta9 = Label(ventana3, text="FELICITACIONES, Usted ha ganado",bg="#BABC28").place(x=50, y=20)
+        ventana3.geometry('350x250')
+        ventana3.title("BINGO!!!")
+        ventana3.config(bg="#BABC28")
+        #imagen = PhotoImage(file="bingo.png")
+        #etiqueta10 = Label(ventana3, image=imagen).place(x=0, y=0)
+        etiqueta11 = Label(ventana3, text="POZO GANADO: ",bg="#BABC28").place(x=50, y=50) 
     
+        pozo = 0
+        for i in H:
+            pozo = pozo + int(i)
+        pozo = pozo*5
+    
+    else:
+        messagebox.showinfo("Mensaje", "Aun no se han elegido 15  bolillas :D")
+
+    etiqueta12 = Label(ventana3, text=str(pozo),bg="#BABC28").place(x=200, y=50)   
+    ventana3.mainloop()
 
 def resumen():
     messagebox.showinfo("RESUMEN", str(m))
@@ -68,6 +92,7 @@ def añadir_jugador():
     if int(cartilla.get())<4:
         G.append(nombre.get())
         H.append(cartilla.get())
+        messagebox.showinfo("Mensaje", "Jugador registrado exitosamente")
     else:
         messagebox.showinfo("Mensaje", "Ah excedido el número de cartillas permitido")
     nombre.set("")
@@ -75,37 +100,23 @@ def añadir_jugador():
     
 def mostrar_jugadores():
     messagebox.showinfo("Jugadores", str(G))
-  
 
-ventana= Tk()
-
-# Definimos las variables
-n = []
-for i in range(1,81):
-    n.append(i)
-m = []
-
-
-G = []
-H = []
-nombre = StringVar()
-cartilla = StringVar()
 
 #Diseño de la Interfaz (Ventana 1)
 ventana.geometry('350x480')
 ventana.title("BINGO!!!")
-etiqueta = Label(ventana, text="Bienvenidos al Bingo",bg="#369A8E")
+etiqueta = Label(ventana, text="Bienvenidos al Bingo",bg="#15CBDA")
 etiqueta.pack()
-ventana.config (bg="#369A8E")
+ventana.config (bg="#15CBDA")
 ttk.Button(ventana, text='Salir', command=ventana.destroy).pack(side=BOTTOM)
 
 
 # Interfaz: Ventanas Label y TextField (Ventana1)
 
-etiqueta1 = Label(ventana, text="Nombre del Jugador: ",bg="#369A8E").place(x=40, y=30)
+etiqueta1 = Label(ventana, text="Nombre del Jugador: ",bg="#15CBDA").place(x=40, y=30)
 nombre_etiqueta = Entry(ventana, textvariable=nombre).place(x=180, y=30)
 
-etiqueta2 = Label(ventana, text="Numero de Cartillas: ",bg="#369A8E").place(x=40, y=60)
+etiqueta2 = Label(ventana, text="Numero de Cartillas: ",bg="#15CBDA").place(x=40, y=60)
 cartilla_etiqueta = Entry(ventana, textvariable=cartilla).place(x=180, y=60)
 
 
