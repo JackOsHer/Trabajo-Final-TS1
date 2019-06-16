@@ -1,19 +1,29 @@
 import time
+
 while True:
 
     G=[]
     H=[]
+    menu = ("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
     #Entrada
-    x = int(input("\nIngrese el numero de jugadores: "))
-
+    while True:
+        x = int(input("\nIngrese el numero de jugadores: "))
+        if x>0:
+            break
+        else:
+            print("Numero ingresado no es válido")
+    
     while True:
         y = input("\nIngrese su nombre: ")
         G.append(y)
         while True:
             z= int(input("\nIngrese numero de cartillas: "))
-            if z <= 3:
+            if 0 < z <= 3:
                 H.append(z)
                 break
+            else:
+                print("Ah excedido el número de cartillas permitidas")
+                
         if len(G) == x:
             break
 
@@ -31,7 +41,7 @@ while True:
     for i in range(1,81):
         n.append(i)
 
-    print("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
+    print(menu)
 
 
 
@@ -40,10 +50,12 @@ while True:
         if len(m)>=0:
 
             while True:
-                opcion = int(input("\nIngrese el numero de la opcion elegida: "))
-                print("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
+                opcion = int(input("\nIngrese el número de la opcion elegida: "))
+                print(menu)
                 if(1<=opcion<=5):
                     break
+                else:
+                    print("\n> > > Opcion inválida < < <")
 
             if opcion==1:
                 print("\nResumen: ",m)
