@@ -127,10 +127,10 @@ while True:
         
         if(opcion==5):
             continue
-        if(opcion==2 or opcion==3 or opcion==6):
+        if(opcion==2 or opcion==3 or (opcion==6 and len(m)>=15)):
             break  
      
-    if(opcion==3 or opcion==6):
+    if(opcion==3 or (opcion==6 and len(m)>=15)):
         break
           
 #Hay talento, solo falta apoyarlo.
