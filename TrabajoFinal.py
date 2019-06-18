@@ -1,18 +1,20 @@
 
 while True:
-#Declaramos los arreglos donde se guardaran el numero de cartillas y los jugadores ademas  el menu opcion 
+#Declaramos los arreglos donde se guardaran el nombre de los jugadores
+# y el número de cartillas q compraran, ademas del Menu
     G=[]
     H=[]
     menu = ("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego\nOPCION 6: BINGO")
-    #Entrada de jugadore y numero de cartillas 
+    
+    # REGISTRO DE JUGADORES 
     while True:
         x = int(input("\nIngrese el numero de jugadores: "))
         if x>1:
             break
         elif x ==1 : 
-            print("consiguete un amigo mas campeon ")
+            print("Consíguete un amigo más campeón D: ")
         else:
-            print("Numero ingresado no es válido")
+            print("Número ingresado no es válido")
     
     while True:
         while True:
@@ -21,18 +23,22 @@ while True:
                 G.append(y)
                 break
             else:
-                print("Nombre ya registrado :(,elija otro :D")
+                print("Nombre ya registrado :c. Elija otro :D")
         while True:
             z= int(input("\nIngrese numero de cartillas: "))
             if 0 < z <= 3:
                 H.append(z)
                 break
+            elif z<0:
+                print("Número inválido")
+            elif z==0:
+                print("Vamos amigo, compre 1 al menos")
             else:
                 print("Ah excedido el número de cartillas permitidas")
                 
         if len(G) == x:
             break
-#hallamos el pozo de sera acreedor el ganador del bingo
+# Hallamos el pozo que sera acreedor el ganador del bingo
     suma = 0 
     for fila in H:
         suma = suma + fila
@@ -49,7 +55,7 @@ while True:
 
     print(menu)
 
-#a
+# Inicio del juego
 
     while True:
         
@@ -66,14 +72,17 @@ while True:
             if opcion==1:
                 print("\nResumen: ",m)
             elif opcion==2:
-                print("\nReiniciando el programa")
+                print("\n_____________________________________________________________")
+                print("\nReiniciando el programa...")
                 print("\n_____________________________________________________________")
                 print("\n>>>>>>>>>>>>>>>>>>>>>>NUEVO JUEGO<<<<<<<<<<<<<<<<<<<<<")
                 print("\n_____________________________________________________________")    
             elif opcion==3:
-                print("\nFinalizando juego")
+                print("\n_____________________________________________________________")
+                print("\nFinalizando juego...")
                 print("\n_____________________________________________________________")
                 print("\n>>>>>>>>>>>>>>>>>>>>>>GAME OVER<<<<<<<<<<<<<<<<<<<<<")
+                print("\nGRACIAS POR JUGAR :D ")
                 print("\n_____________________________________________________________")
             elif opcion==4:
                 print("\n_____________________________________________________________")
@@ -86,10 +95,13 @@ while True:
                 print("\n>>>>>>>>>> Bolilla elegida: ",a, " <<<<<<<<<<")
             else:
                 if len(m)>=15:
-                    print("FELICITACIONES,usted ha ganado el Bingo")
-                    print("EL POZO GANADO ES DE ", pozo)
+                    print("\n_____________________________________________________________")
+                    print("\nFELICITACIONES,usted ha ganado el Bingo")
+                    print("\nEL POZO GANADO ES DE: ", pozo, " NUEVOS SOLES")
+                    print("\n_____________________________________________________________")
+                    
                 else:
-                    print("Aun no se han sacado 15 bolillas :c")
+                    print("\nAún no se han sacado 15 bolillas :c. Continúe jugando")
         
         if(opcion==5):
             continue
@@ -103,4 +115,3 @@ while True:
         break
     
 #Hay talento, solo falta apoyarlo.
-print(pozo)
