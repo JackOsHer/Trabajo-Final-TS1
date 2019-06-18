@@ -31,18 +31,27 @@ while True:
                 break
             else:
                 print("Nombre ya registrado :c. Elija otro :D")
+
+
         while True:
-            z= int(input("\nIngrese numero de cartillas: "))
-            if 0 < z <= 3:
-                H.append(z)
-                break
-            elif z<0:
-                print("Número inválido")
-            elif z==0:
-                print("Vamos amigo, compre 1 al menos")
-            else:
-                print("Ah excedido el número de cartillas permitidas")
-                
+            z= input("\nIngrese numero de cartillas: ")
+
+            try:
+                z=int(z)
+
+                if 0 < z <= 3:
+                    H.append(z)
+                    break
+                elif z<0:
+                    print("Número inválido")
+                elif z==0:
+                    print("Vamos amigo, compre 1 al menos")
+                else:
+                    print("Ah excedido el número de cartillas permitidas")
+
+            except(ValueError):
+                print("Debe ingresar un número, no una letra")
+
         if len(G) == x:
             break
 # Hallamos el pozo que sera acreedor el ganador del bingo
@@ -69,12 +78,16 @@ while True:
         if len(m)>=0:
 
             while True:
-                opcion = int(input("\nIngrese el número de la opcion elegida: "))
+                opcion = input("\nIngrese el número de la opcion elegida: ")
                 print(menu)
-                if(1<=opcion<=6):
-                    break
-                else:
-                    print("\n> > > Opcion inválida < < <")
+                try:
+                    opcion=int(opcion)
+                    if(1<=opcion<=6):
+                        break
+                    else:
+                        print("\n> > > Opcion inválida < < <")
+                except(ValueError):
+                    print("\n>>>>> Debe ingresar un número, no una letra <<<<<")
 
             if opcion==1:
                 print("\nResumen: ",m)
