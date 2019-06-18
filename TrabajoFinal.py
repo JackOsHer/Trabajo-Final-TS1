@@ -1,21 +1,27 @@
-import time
 
 while True:
-
+#Declaramos los arreglos donde se guardaran el numero de cartillas y los jugadores ademas  el menu opcion 
     G=[]
     H=[]
     menu = ("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
-    #Entrada
+    #Entrada de jugadore y numero de cartillas 
     while True:
         x = int(input("\nIngrese el numero de jugadores: "))
-        if x>0:
+        if x>1:
             break
+        elif x ==1 : 
+            print("consiguete un amigo mas campeon ")
         else:
             print("Numero ingresado no es válido")
     
     while True:
-        y = input("\nIngrese su nombre: ")
-        G.append(y)
+        while True:
+            y = input("\nIngrese su nombre: ")
+            if G.count(y) == 0:
+                G.append(y)
+                break
+            else:
+                print("Nombre ya registrado :(,elija otro :D")
         while True:
             z= int(input("\nIngrese numero de cartillas: "))
             if 0 < z <= 3:
@@ -26,7 +32,7 @@ while True:
                 
         if len(G) == x:
             break
-
+#hallamos el pozo de sera acreedor el ganador del bingo
     suma = 0 
     for fila in H:
         suma = suma + fila
