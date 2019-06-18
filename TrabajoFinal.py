@@ -8,13 +8,20 @@ while True:
     
     # REGISTRO DE JUGADORES 
     while True:
-        x = int(input("\nIngrese el numero de jugadores: "))
-        if x>1:
-            break
-        elif x ==1 : 
-            print("Consíguete un amigo más campeón D: ")
-        else:
-            print("Número ingresado no es válido")
+        x = input("\nIngrese el numero de jugadores: ")
+
+        try:
+            x=int(x)
+            if x>1:
+                break
+            elif x ==1 : 
+                print("Consíguete un amigo más campeón D: ")
+            else:
+                print("Número ingresado no es válido")
+
+        except(ValueError):
+            print("Debe ingresar un número, no una letra")        
+
     
     while True:
         while True:
