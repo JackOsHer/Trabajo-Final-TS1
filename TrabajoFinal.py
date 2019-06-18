@@ -99,19 +99,18 @@ while True:
                     print("\nFELICITACIONES,usted ha ganado el Bingo")
                     print("\nEL POZO GANADO ES DE: ", pozo, " NUEVOS SOLES")
                     print("\n_____________________________________________________________")
-                    
+                    print("\n>>>>>>>>>>>>>>>>>>>>>>GAME OVER<<<<<<<<<<<<<<<<<<<<<")
+                    print("\nGRACIAS POR JUGAR :D ")
+                    print("\n_____________________________________________________________")
                 else:
                     print("\nAún no se han sacado 15 bolillas :c. Continúe jugando")
         
         if(opcion==5):
             continue
-        if(opcion==2 or opcion==3):
+        if(opcion==2 or opcion==3 or opcion==6):
             break  
      
-    if(opcion==3):
+    if(opcion==3 or opcion==6):
         break
-        
-    if(opcion==6):
-        break
-    
+          
 #Hay talento, solo falta apoyarlo.
