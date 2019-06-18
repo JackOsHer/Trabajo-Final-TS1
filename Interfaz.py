@@ -22,14 +22,8 @@ nombre = StringVar()
 cartilla = StringVar()
 
 # Definimos las funciones
-def saludar():
-    print("Hola "+nombre.get())
-
-def obtener():
-    messagebox.showinfo("Mensaje","Hola "+nombre.get()+"\nUsted ha comprado "+str(cartilla.get())+" cartillas")
-
 def abrir_ventana2():
-    if int(len(G))!=0:
+    if int(len(G))>1:
     #LABEL's
         etiqueta3 = Label(ventana, text=">>>>>>>> BINGO <<<<<<<<",fg="blue",bg="#48C9B0").place(x=90, y=190)
         etiqueta4 = Label(ventana, text=" Mostrar Resumen:",fg="#181446",bg="#48C9B0",wraplength=300).place(x=80, y=220)
@@ -45,7 +39,7 @@ def abrir_ventana2():
         boton9 = Button(ventana, text="Seleccionar", command=seleccionar_bolilla,activebackground="red").place(x=200, y=360)
         boton10 = Button(ventana, text="BINGO", command=ganar,activebackground="#BABC28").place(x=250, y=410)
     else:
-        messagebox.showinfo("Mensaje", "Debe de registrar al menos a un jugador :D")
+        messagebox.showinfo("Mensaje", "Debe de registrar al menos a 2 jugadores :D")
 
     
     
@@ -56,8 +50,6 @@ def ganar():
         ventana3.geometry('350x250')
         ventana3.title("BINGO!!!")
         ventana3.config(bg="#BABC28")
-        #imagen = PhotoImage(file="bingo.png")
-        #etiqueta10 = Label(ventana3, image=imagen).place(x=0, y=0)
         etiqueta11 = Label(ventana3, text="POZO GANADO: ",bg="#BABC28").place(x=50, y=50) 
     
         pozo = 0
@@ -68,7 +60,7 @@ def ganar():
     else:
         messagebox.showinfo("Mensaje", "Aun no se han elegido 15  bolillas :D")
 
-    etiqueta12 = Label(ventana3, text=str(pozo),bg="#BABC28").place(x=200, y=50)   
+    etiqueta12 = Label(ventana3, text=(str(pozo)," NUEVOS SOLES"),bg="#BABC28").place(x=180, y=50)   
     ventana3.mainloop()
 
 def resumen():
@@ -136,4 +128,4 @@ boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2,activeback
 boton3 = Button(ventana, text="Agregar Jugador", command=añadir_jugador,activebackground="#369A8E").place(x=60, y=90)
 boton4 = Button(ventana, text="Mostrar Jugadores", command=mostrar_jugadores,activebackground="#369A8E").place(x=180, y=90)
 
-etiqueta.mainloop()
+ventana.mainloop()
