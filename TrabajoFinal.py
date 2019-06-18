@@ -49,7 +49,7 @@ while True:
 
     print(menu)
 
-
+#a
 
     while True:
         
@@ -93,3 +93,4 @@ while True:
     if(opcion==3):
         break
 #Hay talento, solo falta apoyarlo.
+print(pozo)
