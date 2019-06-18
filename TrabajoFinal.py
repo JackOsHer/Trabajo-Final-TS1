@@ -3,7 +3,7 @@ while True:
 #Declaramos los arreglos donde se guardaran el numero de cartillas y los jugadores ademas  el menu opcion 
     G=[]
     H=[]
-    menu = ("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego")
+    menu = ("\nMENU\nOPCION 1: Mostrar resumen\nOPCION 2: Reiniciar juego\nOPCION 3: Finalizar juego\nOPCION 4: Mostrar pozo ganado\nOPCION 5: Presione 5 para continuar el juego\nOPCION 6: BINGO")
     #Entrada de jugadore y numero de cartillas 
     while True:
         x = int(input("\nIngrese el numero de jugadores: "))
@@ -58,7 +58,7 @@ while True:
             while True:
                 opcion = int(input("\nIngrese el número de la opcion elegida: "))
                 print(menu)
-                if(1<=opcion<=5):
+                if(1<=opcion<=6):
                     break
                 else:
                     print("\n> > > Opcion inválida < < <")
@@ -79,11 +79,17 @@ while True:
                 print("\n_____________________________________________________________")
                 print("\nPOZO GANADO: ",pozo, " SOLES")
                 print("\n_____________________________________________________________")
-            else:
+            elif opcion==5:
                 a = random.choice(n)
                 m.append(a)
                 n.remove(a)
                 print("\n>>>>>>>>>> Bolilla elegida: ",a, " <<<<<<<<<<")
+            else:
+                if len(m)>=15:
+                    print("FELICITACIONES,usted ha ganado el Bingo")
+                    print("EL POZO GANADO ES DE ", pozo)
+                else:
+                    print("Aun no se han sacado 15 bolillas :c")
         
         if(opcion==5):
             continue
@@ -92,5 +98,9 @@ while True:
      
     if(opcion==3):
         break
+        
+    if(opcion==6):
+        break
+    
 #Hay talento, solo falta apoyarlo.
 print(pozo)
