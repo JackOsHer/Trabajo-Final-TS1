@@ -74,6 +74,13 @@ def reiniciar():
     n.clear()
     messagebox.showinfo("Reiniciar Juego", "Juego Reiniciado Exitosamente")
 
+def reiniciar1():
+    m.clear()
+    G.clear()
+    H.clear()
+    n.clear()
+    messagebox.showinfo("Eliminar", "Reggistro de jugadores eliminado")
+
 def finalizar():
     messagebox.showinfo("Finalizar Juego", "GAME OVER, GRACIAS POR JUGAR")   
     ventana.destroy()
@@ -92,12 +99,25 @@ def seleccionar_bolilla():
     messagebox.showinfo("BOLILLA", "Bolilla elegida: "+str(a))
 
 def añadir_jugador():
-    if int(cartilla.get())<4:
-        G.append(nombre.get())
-        H.append(cartilla.get())
-        messagebox.showinfo("Mensaje", "Jugador registrado exitosamente")
-    else:
-        messagebox.showinfo("Mensaje", "Ah excedido el número de cartillas permitido")
+    try:
+        if 0<int(cartilla.get())<4:
+            
+            if G.count(nombre.get()) == 0:
+                G.append(nombre.get())
+                H.append(cartilla.get())
+                messagebox.showinfo("Mensaje", "Jugador registrado exitosamente")
+                
+            else:
+                messagebox.showerror("Mensaje", "Nombre ya registrado :c. Elija otro :")
+
+        elif int(cartilla.get())<0:
+            messagebox.showerror("ERROR", "Ingrese un número válido")
+        elif int(cartilla.get())==0:
+            messagebox.showinfo("Mensaje", "Amigo(a) compre 1 al menos")
+        else:
+            messagebox.showinfo("Mensaje", "Ah excedido el número de cartillas permitido")
+    except(ValueError):
+        messagebox.showerror("ERROR", "Ingrese un número valido")
     nombre.set("")
     cartilla.set("")
     
@@ -129,7 +149,7 @@ cartilla_etiqueta = Entry(ventana, textvariable=cartilla).place(x=180, y=60)
 # Interfaz: Botones
 
 boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2,activebackground="#369A8E").place(x=70, y=130)
-boton5 = Button(ventana, text="Borrar Jugadores", command=eliminar,activebackground="#369A8E").place(x=185, y=130)
+boton5 = Button(ventana, text="Borrar Jugadores", command=reiniciar1,activebackground="#369A8E").place(x=185, y=130)
 boton3 = Button(ventana, text="Agregar Jugador", command=añadir_jugador,activebackground="#369A8E").place(x=60, y=90)
 boton4 = Button(ventana, text="Mostrar Jugadores", command=mostrar_jugadores,activebackground="#369A8E").place(x=180, y=90)
 
