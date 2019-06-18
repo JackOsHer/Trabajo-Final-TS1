@@ -22,6 +22,7 @@ nombre = StringVar()
 cartilla = StringVar()
 
 # Definimos las funciones
+
 def abrir_ventana2():
     if int(len(G))>1:
     #LABEL's
@@ -40,8 +41,8 @@ def abrir_ventana2():
         boton10 = Button(ventana, text="BINGO", command=ganar,activebackground="#BABC28").place(x=250, y=410)
     else:
         messagebox.showinfo("Mensaje", "Debe de registrar al menos a 2 jugadores :D")
+  
 
-    
     
 def ganar():
     if int(len(m))>=15:
@@ -103,6 +104,9 @@ def añadir_jugador():
 def mostrar_jugadores():
     messagebox.showinfo("Jugadores", str(G))
 
+def eliminar():
+    G.clear()
+    H.clear()
 
 #Diseño de la Interfaz (Ventana 1)
 ventana.geometry('350x480')
@@ -124,7 +128,8 @@ cartilla_etiqueta = Entry(ventana, textvariable=cartilla).place(x=180, y=60)
 
 # Interfaz: Botones
 
-boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2,activebackground="#369A8E").place(x=140, y=130)
+boton2 = Button(ventana, text="Iniciar Juego", command=abrir_ventana2,activebackground="#369A8E").place(x=70, y=130)
+boton5 = Button(ventana, text="Borrar Jugadores", command=eliminar,activebackground="#369A8E").place(x=185, y=130)
 boton3 = Button(ventana, text="Agregar Jugador", command=añadir_jugador,activebackground="#369A8E").place(x=60, y=90)
 boton4 = Button(ventana, text="Mostrar Jugadores", command=mostrar_jugadores,activebackground="#369A8E").place(x=180, y=90)
 
