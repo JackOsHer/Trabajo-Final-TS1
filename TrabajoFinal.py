@@ -125,12 +125,20 @@ while True:
                 else:
                     print("\nAún no se han sacado 15 bolillas :c. Continúe jugando")
         
+        if len(m)==15:
+            print("\nAlguien ah debido de ganar ya! :D")
+            print("\n_____________________________________________________________")
+            print("\n>>>>>>>>>>>>>>>>>>>>>>GAME OVER<<<<<<<<<<<<<<<<<<<<<")
+            print("\nGRACIAS POR JUGAR :D ")
+            print("\n_____________________________________________________________")
+            break
+
         if(opcion==5):
             continue
         if(opcion==2 or opcion==3 or (opcion==6 and len(m)>=15)):
             break  
      
-    if(opcion==3 or (opcion==6 and len(m)>=15)):
+    if(opcion==3 or (opcion==6 and len(m)>=15) or len(m)==15):
         break
           
 #Hay talento, solo falta apoyarlo.
